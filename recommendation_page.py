@@ -12,35 +12,8 @@ from rerank import *
 def show_recommendation_page():
     st.write("# Recommendation Steps:")
 
-    dataset = 'C:/Users/45027889/Desktop/WSDM/demo/streamlitExamples/data/sample.csv'
+    dataset = r'https://raw.githubusercontent.com/AI-N/Fair-SRS-Demo/main/data/sample.csv'
     df = pd.read_csv(dataset, delimiter=',')
-
-    with open(dataset, "r") as f:
-        reader = csv.DictReader(f, delimiter=',')
-        sess_clicks = {}
-        user_clicks = {}
-        sess_date = {}
-        ctr = 0
-        curid = -1
-        for data in reader:
-            sessid = data['session_id']
-            uid = data['user']
-            curid = sessid
-            item = data['user'], data['item'], int(data['ts'])
-            user = data['session_id'], data['item'], int(data['ts'])
-            if uid in user_clicks:
-                user_clicks[uid] += [user]
-            else:
-                user_clicks[uid] = [user]
-            if sessid in sess_clicks:
-                sess_clicks[sessid] += [item]
-            else:
-                sess_clicks[sessid] = [item]
-            ctr += 1
-        #print(sess_clicks['0'])
-        for i in list(sess_clicks):
-            sorted_clicks = sorted(sess_clicks[i], key=operator.itemgetter(1))
-            sess_clicks[i] = [c[1] for c in sorted_clicks]
 
     user = st.slider('user', min_value=0, max_value=df['user'].max(), value=67)  # this is a widget
     # user = st.selectbox("select a user", ("user 1", "user 2", "user 3"))
@@ -59,7 +32,7 @@ def show_recommendation_page():
     #                                              j + 1]}, ignore_index=True)
     #item_clicks.drop_duplicates(keep="first", inplace=True)
     #item_clicks = item_clicks.reset_index(drop=True)
-    item_clicks = pd.read_csv('C:/Users/45027889/Desktop/WSDM/demo/streamlitExamples/data/item_clicks.csv', delimiter=',')
+    item_clicks = pd.read_csv(r'https://raw.githubusercontent.com/AI-N/Fair-SRS-Demo/main/data/item_clicks.csv', delimiter=',')
 
     # Split out %20 of each user's sessions as test set
     df = df.drop(['t'], axis=1)
