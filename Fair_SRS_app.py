@@ -1,8 +1,5 @@
 import streamlit as st
 
-
-import ITEMnetPyvis
-
 from Intro_page import show_Intro_page
 from recommendation_page import show_recommendation_page
 from itemGraph_page import show_itemGraph_page
