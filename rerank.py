@@ -5,7 +5,6 @@ import numpy as np
 import random
 import pandas as pd
 from tqdm import tqdm
-import argparse
 from sklearn.decomposition import PCA
 from gensim.models import Word2Vec
 import warnings
