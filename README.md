@@ -11,5 +11,6 @@ In real-world scenarios, **users** tend to interact with more or less contents i
 
 To achieve the objectives of both sides, the proposed Fair-SRS optimizes recommendations by making a trade-off between **accuracy** and **personalized diversity**.
 
-Demo link:
+# Demo link:
+
 https://share.streamlit.io/ai-n/fair-srs-app/main/Fair_SRS_app.py
