@@ -15,6 +15,8 @@ To achieve the objectives of both sides, the proposed Fair-SRS optimizes recomme
 
 https://share.streamlit.io/ai-n/fair-srs-app/main/Fair_SRS_app.py
 
+# Demo explanation
+
 We build the demo dashboard of Fair-SRS on the sub-sample of Xing data using Streamlit (an open-source python framework for building web apps for ML and Data Science). 
 
 This dashboard demonstrate Fair-SRS in three pages: (1)``About Fair-SRS’’, (2)``Top-k recommendations’’, and (3)``Item Network’’. 
