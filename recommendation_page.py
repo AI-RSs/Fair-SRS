@@ -8,10 +8,10 @@ from rerank import *
 def show_recommendation_page():
     st.write("# Recommendation Steps:")
 
-    dataset = r'https://raw.githubusercontent.com/AI-N/Fair-SRS-Demo/main/data/sample.csv'
+    dataset = 'https://raw.githubusercontent.com/AI-N/fair-srs-app/main/data/sample.csv'
     df = pd.read_csv(dataset, delimiter=',')
 
-    user = st.slider('user', min_value=0, max_value=df['user'].max(), value=67)  # this is a widget
+    user = st.slider('user', min_value=0, max_value=int(df['user'].max()), value=67)  # this is a widget
     # user = st.selectbox("select a user", ("user 1", "user 2", "user 3"))
     st.write('The selected user_id: ', user)
 
@@ -28,7 +28,7 @@ def show_recommendation_page():
     #                                              j + 1]}, ignore_index=True)
     #item_clicks.drop_duplicates(keep="first", inplace=True)
     #item_clicks = item_clicks.reset_index(drop=True)
-    item_clicks = pd.read_csv(r'https://raw.githubusercontent.com/AI-N/Fair-SRS-Demo/main/data/item_clicks.csv', delimiter=',')
+    item_clicks = pd.read_csv('https://raw.githubusercontent.com/AI-N/fair-srs-app/main/data/item_clicks.csv', delimiter=',')
 
     # Split out %20 of each user's sessions as test set
     df = df.drop(['t'], axis=1)
@@ -386,7 +386,3 @@ def show_recommendation_page():
 
         st.write("""Feel free to choose another user and see the results! You can find the comparison of Fair-SRS with existing works in the paper!""")
         st.write("""Note that the results are different from the paper as in this demo we use a **sub sample of dataset** to make it run faster!""")
-
-
-
-
